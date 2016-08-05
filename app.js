@@ -16,17 +16,19 @@ var testFunction = function () {
     console.log('I am test function');
 }
 
-var wrapper=function (func,ms) {
-    setTimeout(func,0)
+var wrapper = function (func, ms) {
+    setTimeout(function () {
+
+    }, 0);
     func();
 };
 
 function setIntervalCustom(func, ms, maxCount) {
     var count = 0;
-    console.log('run setIntervalCustom delay=' + ms + "iterations" + maxCount  );
+    console.log('run setIntervalCustom delay=' + ms + "iterations" + maxCount);
     while (true) {
         myTimer(ms);
-        setTimeout(wrapper(func,0),0);
+        setTimeout(wrapper(func, 0), 0);
 
         if (maxCount <= count) {
             break
@@ -38,6 +40,6 @@ function setIntervalCustom(func, ms, maxCount) {
 
 
 console.log('Answer 1');
-setIntervalCustom(testFunction,3000,5);
+setIntervalCustom(testFunction, 3000, 5);
 
 
