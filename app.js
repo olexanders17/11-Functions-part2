@@ -22,21 +22,21 @@ var wrapper = function (func, ms) {
     }, 0);
     func();
 };
-
-function setIntervalCustom(func, ms, maxCount) {
-    var count = 0;
-    console.log('run setIntervalCustom delay=' + ms + "iterations" + maxCount);
-    while (true) {
-        myTimer(ms);
-        setTimeout(wrapper(func, 0), 0);
-
-        if (maxCount <= count) {
-            break
-        }
-        count++
+var count = 0;
+function setIntervalCustom(func, ms,maxCount) {
+    var maxCount=maxCount||5
+    console.log('run setIntervalCustom delay: ' + ms+ "count: "+count);
+    if (count >= maxCount) {
+        return;
     }
+    count++;
 
-};
+    myTimer(ms);
+    setTimeout(setIntervalCustom(func, ms,6), 0);
+
+
+}
+;
 
 
 console.log('Answer 1');
