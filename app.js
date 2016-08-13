@@ -16,12 +16,7 @@ var testFunction = function () {
     console.log('I am test function');
 }
 
-var wrapper = function (func, ms) {
-    setTimeout(function () {
 
-    }, 0);
-    func();
-};
 var count = 0;
 function setIntervalCustom(func, ms, maxCount) {
     var maxCount = maxCount || 5
@@ -36,14 +31,11 @@ function setIntervalCustom(func, ms, maxCount) {
 
 
 }
-;
-
 
 run1 = function () {
     console.log('Answer 1');
     setIntervalCustom(testFunction, 4000, 5);
 }
-
 
 
 myAssign = function (obj, defaults, options) {
